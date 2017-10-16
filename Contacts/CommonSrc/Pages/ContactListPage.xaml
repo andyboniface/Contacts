@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Contacts.CommonSrc.Pages.ContactListPage">
+    <StackLayout BackgroundColor="White" VerticalOptions="Fill">
+        <StackLayout BackgroundColor="#838383" Orientation="Horizontal" VerticalOptions="Start">
+            <!-- top controls -->
+            <Image Source="Contacts.png" HeightRequest="30" Margin="10,0,0,0" x:Name="ContactsImage" />
+            <Image Source="Calendar.png" HeightRequest="50" Margin="10,0,0,0" x:Name="CalendarImage" />
+
+        </StackLayout>
+        <ListView x:Name="ContactListView" ItemSelected="OnSelected" RowHeight="150" ItemsSource="{Binding Items}" Grid.Row="2" Grid.ColumnSpan="3">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="#eee" Orientation="Vertical">
+                            <StackLayout Orientation="Horizontal" Margin="5">
+                                <Image HeightRequest="100" WidthRequest="100" Source="{Binding ThumbnailUrl}" />
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding UsernameAndAge}" TextColor="#f2436f" />
+                                        <Label Text="{Binding PostCode}" HorizontalOptions="EndAndExpand" TextColor="#f2436f" />
+                                    </StackLayout>
+                                    <Label LineBreakMode="WordWrap" TextColor="Black" Text="{Binding Notes}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

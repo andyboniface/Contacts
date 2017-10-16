@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Contacts.CommonSrc.Pages.ProfilePage">
+    <ScrollView>
+    <StackLayout BackgroundColor="White" VerticalOptions="Fill">
+        <Image HeightRequest="200" WidthRequest="200" Source="{Binding ThumbnailUrl}" />
+
+        <Label BackgroundColor="Gray" HorizontalTextAlignment="Center" Margin="5" TextColor="#f2436f" Text="Contact Information:" />
+        <Grid Margin="5" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label VerticalOptions="Center" TextColor="#f2436f" Text="Real Name:" Grid.Row="0" Grid.Column="0" />
+                <Entry HorizontalTextAlignment="End" VerticalOptions="Center" x:Name="RealNameEntry" TextColor="Black" Text="{Binding RealName}" Grid.Row="0" Grid.Column="1" />
+
+                <Label VerticalOptions="Center" TextColor="#f2436f" Text="Telephone:" Grid.Row="1" Grid.Column="0" />
+                <Entry HorizontalTextAlignment="End" VerticalOptions="Center" x:Name="TelephoneEntry" TextColor="Black" Text="{Binding TelephoneNumber}" Grid.Row="1" Grid.Column="1" />
+
+                <Label VerticalOptions="Center" TextColor="#f2436f" Text="WhatsApp:" Grid.Row="2" Grid.Column="0" />
+                <Entry HorizontalTextAlignment="End" VerticalOptions="Center" x:Name="WhatsAppEntry" TextColor="Black" Text="{Binding WhatsAppNumber}" Grid.Row="2" Grid.Column="1" />
+
+                <Label VerticalOptions="Center" TextColor="#f2436f" Text="KIK:" Grid.Row="3" Grid.Column="0" />
+                <Entry HorizontalTextAlignment="End" VerticalOptions="Center" x:Name="KikEntry" TextColor="Black" Text="{Binding KIKAccountName}" Grid.Row="3" Grid.Column="1" />
+
+                <Label VerticalOptions="Center" TextColor="#f2436f" Text="Email:" Grid.Row="4" Grid.Column="0" />
+                <Entry HorizontalTextAlignment="End" VerticalOptions="Center" x:Name="EmailEntry" TextColor="Black" Text="{Binding EmailAddress}" Grid.Row="4" Grid.Column="1" />
+
+                <Label VerticalOptions="Center" TextColor="#f2436f" Text="Address:" Grid.Row="5" Grid.Column="0" />
+                <Entry HorizontalTextAlignment="End" VerticalOptions="Center" x:Name="LocationEntry" TextColor="Black" Text="{Binding Address}" Grid.Row="5" Grid.Column="1" />
+
+                <Label VerticalOptions="Center" TextColor="#f2436f" Text="Post Code:" Grid.Row="6" Grid.Column="0" />
+                <Entry HorizontalTextAlignment="End" VerticalOptions="Center" TextColor="Black" Text="{Binding PostCode}" Grid.Row="6" Grid.Column="1" />
+            </Grid>
+
+            <Label BackgroundColor="Gray" HorizontalTextAlignment="Center" Margin="5" TextColor="#f2436f" Text="Notes:" />
+            <Editor HeightRequest="200" MinimumHeightRequest="200" VerticalOptions="Center" TextColor="Black" Text="{Binding Notes}" />
+    </StackLayout>
+    </ScrollView>
+</ContentPage>

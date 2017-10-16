@@ -29,7 +29,12 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="ContactsPage.xaml" />
+    <EmbeddedResource Include="CommonSrc\Pages\ContactListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonSrc\Pages\ProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -39,6 +44,20 @@
       <DependentUpon>ContactsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CommonSrc\Pages\ContactListPage.xaml.cs">
+      <DependentUpon>ContactListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommonSrc\Database\Contact.cs" />
+    <Compile Include="CommonSrc\Configuration\ILogging.cs" />
+    <Compile Include="CommonSrc\Database\DBService.cs" />
+    <Compile Include="CommonSrc\Database\DBReply.cs" />
+    <Compile Include="CommonSrc\Database\DBCommand.cs" />
+    <Compile Include="CommonSrc\Database\DBDataSource.cs" />
+    <Compile Include="CommonSrc\Utils\TimeScheduler.cs" />
+    <Compile Include="CommonSrc\Pages\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CommonSrc\Configuration\DesignTimeHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -56,9 +75,19 @@
     <Reference Include="Syncfusion.Core.XForms">
       <HintPath>packages\Syncfusion.Xamarin.Core.15.3.0.33\lib\portable-win+net45+wp80+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Syncfusion.Core.XForms.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommonSrc\" />
+    <Folder Include="CommonSrc\Pages\" />
+    <Folder Include="CommonSrc\Database\" />
+    <Folder Include="CommonSrc\Configuration\" />
+    <Folder Include="CommonSrc\Utils\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('packages\Xamarin.Forms.2.4.0.282\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
